@@ -27,6 +27,15 @@ tinypatscan = { git = "https://github.com/mcbegamerxx954/tinypatscan", version =
 [profile.release]
 # This lib gets called from nowhere and so unwinding = crash
 panic = "abort"
+opt-level = 3       # Level 3: Kecepatan Maksimal (Compiler bakal kerja keras)
+lto = true          # Link Time Optimization: Gabungin semua kode biar mulus (PENTING buat kurangin stutter)
+codegen-units = 1   # Bikin satu unit kode utuh. Build lebih lama, tapi performa in-game lebih stabil.
+strip = true        # Buang sampah simbol debug. File .so jadi enteng.
+debug = false       # Matikan debug info total.
+
+# [profile.release]
+# This lib gets called from nowhere and so unwinding = crash
+# panic = "abort"
 
 [profile.githubci]
 inherits = "release"
