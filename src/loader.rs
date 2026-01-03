@@ -82,7 +82,7 @@ impl FileLoader {
                 let mut cxx_storage = StackString::new();
                 let mut cxx_ptr = unsafe { cxx_storage.init("") };
                 let Some(loadfn) = crate::RPM_LOAD.get() else {
-                    log::warn!("ResourcePackManager fn is not ready yet?");
+                    //log::warn!("ResourcePackManager fn is not ready yet?");
                     return None;
                 };
                 let mut resource_loc = ResourceLocation::new();
@@ -97,10 +97,10 @@ impl FileLoader {
                     loadfn(packm_ptr, resource_loc, cxx_ptr.as_mut());
                 }
                 if cxx_ptr.is_empty() {
-                    log::info!("Cannot find file: {}", cpppath.as_ref());
+                    //log::info!("Cannot find file: {}", cpppath.as_ref());
                     return None;
                 }
-                log::info!("Loaded ResourcePack file: {}", cpppath.as_ref());
+                //log::info!("Loaded ResourcePack file: {}", cpppath.as_ref());
                 let buffer = if file
                     .as_os_str()
                     .as_encoded_bytes()
