@@ -38,12 +38,21 @@ debug = false       # Matikan debug info total.
 # panic = "abort"
 
 [profile.githubci]
-inherits = "release"
-strip = true
-lto = true 
-codegen-units = 1 
-debug = false
-panic = "abort"
+inherits = "release" # Dia mewarisi sifat dasar release
+strip = true         # Buang simbol (sudah ada)
+lto = true           # Link Time Optimization (sudah ada)
+codegen-units = 1    # Satu unit kode (sudah ada)
+debug = false        # (sudah ada)
+panic = "abort"      # (sudah ada)
+opt-level = 3        # Paksa level 3 (Max Speed)
+
+# [profile.githubci]
+# inherits = "release"
+# strip = true
+# lto = true 
+# codegen-units = 1 
+# debug = false
+# panic = "abort"
 
 [lib]
 crate-type = ["cdylib"]
